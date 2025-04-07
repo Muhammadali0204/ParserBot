@@ -40,7 +40,8 @@ def login():
         driver.quit()
         
         return session
-    except:
+    except Exception as e:
+        print(f"Login amalga oshmadi : {e}")
         return None
 
 
