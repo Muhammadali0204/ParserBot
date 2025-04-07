@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  pythonapp:
+    build: .
+    container_name: Logistics_bot
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      -./:/app
+    command: ['python', 'main.py']
