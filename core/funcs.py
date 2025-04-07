@@ -79,10 +79,12 @@ def get_data(session: requests.Session):
 
 def parse_2_bottext(item: RequestData):
     if item["status"] is True:
-        text = f"⏳Time remaining: {item['time_remaining']//60}:{item['time_remaining']%60}\n\n"\
+        delta_time = item['time_remaining']-time.time()
+        text = "Test\n\n"\
+        f"⏳Time remaining: {int(delta_time//60)}:{int(delta_time%60)}\n\n"\
         f"🔢Load ID: {item['load_id']}\n📏Total distance: {item['total_distance']} mile\n\n"\
         f"🕐Load start date: {item['load_start_date']}\n🏁Load end date: {item['load_end_date']}\n\n"\
-        f"🔴Stops: \n{"\n".join(item['stops'])}\n\n🕐: {datetime.utcnow().strftime("%Y-%m-%d %H:%M")}"
+        f"🔴Stops: \n{"\n".join(item['stops'])}\n\n🕐: {datetime.utcnow().strftime("%Y-%m-%d %H:%M")} UTC"
         
         return text
     return None
