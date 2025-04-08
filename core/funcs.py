@@ -81,7 +81,7 @@ def get_data(session: requests.Session):
 def parse_2_bottext(item: RequestData):
     if item["status"] is True:
         delta_time = item['time_remaining']-time.time()
-        text = "Test\n\n"\
+        text = "🆕 New Post:\n\n"\
         f"⏳Time remaining: {int(delta_time//60)}:{int(delta_time%60)}\n\n"\
         f"🔢Load ID: {item['load_id']}\n📏Total distance: {item['total_distance']} mile\n\n"\
         f"🕐Load start date: {item['load_start_date']}\n🏁Load end date: {item['load_end_date']}\n\n"\
